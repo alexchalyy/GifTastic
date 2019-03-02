@@ -1,18 +1,18 @@
 GifTastic pseudo code:
 
-1.	Make an global array (topics) of strings with values of "Husky", "Alaskan malamute", and "German sheppard".
+1.	Make an global array (topics) of strings with values of "Husky", "Alaskan malamute", and "German sheppard".	DONE
 
 2.	Create void PopulateButtons function with the definition below:
 
-		Clear the id = "buttons" div
+		Clear the id = "buttons" div	DONE
 
-		For each element of the array:
+		For each element of the array:	DONE
 
-			Create a variable button labeled with the string value of the array.
+			Create a variable button labeled with the string value of the array. DONE
 
-			Add it to id = "buttons" div dynamically in html page.
+			Add it to id = "buttons" div dynamically in html page. DONE
 
-3.	Call PopulateButtons.
+3.	Call PopulateButtons. DONE
 
 4.	Add text box and search button dynamically to div with id = "search".
 
