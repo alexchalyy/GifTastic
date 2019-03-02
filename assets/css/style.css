@@ -1,0 +1,15 @@
+/*  This styles the giftastic html sheet.
+
+    Written by Alex Chalyy on 3/2/2019. */
+
+/*  This styles the bootstrap card that holds everything. */
+
+#c1 {
+    margin-top: 5%;
+}
+
+/*  This centers the title of the bootstrap card. */
+
+#title  {
+    text-align: center;
+}
