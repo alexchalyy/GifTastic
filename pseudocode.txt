@@ -14,7 +14,7 @@ GifTastic pseudo code:
 
 3.	Call PopulateButtons. DONE
 
-4.	Add text box and search button dynamically to div with id = "search".
+4.	Add text box and search button to div with id = "search".	DONE
 
 5.	Create void PupulateGifs function with the following definition.
 

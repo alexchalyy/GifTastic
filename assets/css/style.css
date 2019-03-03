@@ -13,3 +13,20 @@
 #title  {
     text-align: center;
 }
+
+/*  This media query centers the search box on large screens.   */
+
+@media (max-width: 12450px) {
+    #search {
+        margin-left: 5%;
+    }
+}
+
+/*  This media query reduces the font of search box for small screens.  */
+
+@media (max-height: 375px) {
+    #search {
+        padding-left: 0%;
+        font-size: 50%;
+    }
+}

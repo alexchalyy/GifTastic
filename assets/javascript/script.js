@@ -6,9 +6,11 @@
 
 var topics = ["husky", "alaskan malamute", "german shepard", "collie", "pitbull", "sheltie", "bulldog", "rotvajler", "chihuahua", "poodle", "pug"];
 
+//----------------------------------------------------------------------------------------------------------
+
 function PopulateButtons() {
 
-    //  This function clears button div and adds buttons dynamically to the div with text labels that are the same as topics array element values.
+    //  This function adds buttons dynamically to the div with text labels that are the same as topics array element values.
 
     //$("#buttons").remove(); //  This clears all previous buttons
 
@@ -19,4 +21,56 @@ function PopulateButtons() {
     }   
 }
 
+function updatePage()   {
+
+    console.log("get call works!");
+    console.log(response);
+}
+
+//----------------------------------------------------------------------------------------------------------
+
+function Submit()   {
+
+    //  This function is called when the user clicks submit button.
+    //  It adds a new button to buttons if the text box is not empty, with textbox contents.
+
+    topics.push($("s").text());
+    $("#buttons").remove(); //  This clears all previous buttons
+    PopulateButtons();
+}
+
+//----------------------------------------------------------------------------------------------------------
+
+function PopulateGIFs(animal)   {
+
+    //  This function populates the bootstrap card with 10 animal gif images of choice.
+
+    //below query connects to giphy API with key
+
+    //var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=wxu2jPOXlj0bnJJQl4bDrvxy4Og5iADT&limit=10");
+    
+    //xhr.done(function(data) { console.log("success got data", data); });
+
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=wxu2jPOXlj0bnJJQl4bDrvxy4Og5iADT&limit=10";
+
+    var q = "http://api.giphy.com/v1/gifs/feqkVgjJpYtjy?api_key=wxu2jPOXlj0bnJJQl4bDrvxy4Og5iADT&limit=10"
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        console.log(response.data[0].images.downsized.url);
+        console.log(response);
+        //var image = $("<img>");
+        //image.attr("src", response.data[0].downsized.url);
+        //$("#gifs").append(image);
+        $("#gifs").append("<imag src=\"" + response.data[0].images.downsized.url.toString() + "\">");
+        console.log(response.data[0]);
+        console.log("hi");
+      });
+}
+
 PopulateButtons();
+PopulateGIFs("husky");
+
+//$("#sub").click();
