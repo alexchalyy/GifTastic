@@ -29,15 +29,7 @@ function updatePage()   {
 
 //----------------------------------------------------------------------------------------------------------
 
-function Submit()   {
 
-    //  This function is called when the user clicks submit button.
-    //  It adds a new button to buttons if the text box is not empty, with textbox contents.
-
-    topics.push($("s").text());
-    $("#buttons").remove(); //  This clears all previous buttons
-    PopulateButtons();
-}
 
 //----------------------------------------------------------------------------------------------------------
 
@@ -63,11 +55,22 @@ function PopulateGIFs(animal)   {
         console.log(response);
         $("#gifs").append("<img src=\"" + response.data[0].images.downsized.url.toString() + "\">");
         console.log(response.data[0]);
-        console.log("akira asa");
+        console.log("husky");
       });
 }
 
 PopulateButtons();
-PopulateGIFs("akira asa");
+PopulateGIFs("husky");
 
-//$("#sub").click();
+$("#sub").click(
+    
+    function Submit()   {
+
+    //  This function is called when the user clicks submit button.
+    //  It adds a new button to buttons if the text box is not empty, with textbox contents.
+
+    //topics.push($("s").text());
+    console.log(topics);
+    //$("#buttons").remove(); //  This clears all previous buttons
+    //PopulateButtons();
+});
