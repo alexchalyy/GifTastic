@@ -61,16 +61,13 @@ function PopulateGIFs(animal)   {
       }).then(function(response) {
         console.log(response.data[0].images.downsized.url);
         console.log(response);
-        //var image = $("<img>");
-        //image.attr("src", response.data[0].downsized.url);
-        //$("#gifs").append(image);
-        $("#gifs").append("<imag src=\"" + response.data[0].images.downsized.url.toString() + "\">");
+        $("#gifs").append("<img src=\"" + response.data[0].images.downsized.url.toString() + "\">");
         console.log(response.data[0]);
-        console.log("hi");
+        console.log("akira asa");
       });
 }
 
 PopulateButtons();
-PopulateGIFs("husky");
+PopulateGIFs("akira asa");
 
 //$("#sub").click();
