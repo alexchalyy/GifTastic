@@ -18,7 +18,7 @@ GifTastic pseudo code:
 
 5.	Create void PupulateGifs function with the following definition.
 
-		Empty the gifs div
+		Empty the gifs div	DONE
 
 		Make an ajax api get call to giphy to return 10 static g or lower rating results with the s value derived from the button clicked.
 
@@ -45,8 +45,6 @@ GifTastic pseudo code:
 		else 
 
 			add the search string to topics array
-
-			Call PopulateButtons
 
 		
 
