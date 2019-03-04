@@ -2,7 +2,7 @@ GifTastic pseudo code:
 
 1.	Make an global array (topics) of strings with values of "Husky", "Alaskan malamute", and "German sheppard".	DONE
 
-2.	Create void PopulateButtons function with the definition below:
+2.	Create void PopulateButtons function with the definition below: DONE
 
 		Clear the id = "buttons" div	DONE
 
@@ -16,13 +16,13 @@ GifTastic pseudo code:
 
 4.	Add text box and search button to div with id = "search".	DONE
 
-5.	Create void PupulateGifs function with the following definition.
+5.	Create void PupulateGifs function with the following definition. DONE
 
 		Empty the gifs div	DONE
 
-		Make an ajax api get call to giphy to return 10 static g or lower rating results with the s value derived from the button clicked.
+		Make an ajax api get call to giphy to return 10 static g or lower rating results with the s value derived from the button clicked. DONE
 
-		Add the result gif images and ratings to div with id = "gifs".
+		Add the result gif images and ratings to div with id = "gifs". DONE
 
 6.	When the user clicks a button, call PopulateGifs for that button.
 
@@ -34,17 +34,17 @@ GifTastic pseudo code:
 
 		else, make it static
 
-8.	Create a function Search with the following definition:
+8.	Create a function Search with the following definition: DONE
 
-	If user clicks on search button,
+	If user clicks on search button, DONE
 
-		If the search is empty,
+		If the search is empty, DONE
 
-			do nothing
+			do nothing DONE
 
-		else 
+		else DONE
 
-			add the search string to topics array
+			add the search string to topics array DONE
 
 		
 

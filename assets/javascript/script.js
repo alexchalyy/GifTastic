@@ -12,8 +12,7 @@ function PopulateButtons() {
 
     //  This function adds buttons dynamically to the div with text labels that are the same as topics array element values.
 
-    //$("#buttons").remove(); //  This clears all previous buttons
-
+    $("#buttons").empty();
     for (var c = 0; c < topics.length; c++) {   //  This populated the buttons div with topics array buttons
         console.log(topics[c]);
         //  This function populates the div with buttons
@@ -29,7 +28,7 @@ function updatePage() {
     console.log(response);
 }
 
-//----------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
 
 function PopulateGIFs(animal) {
 
@@ -42,12 +41,13 @@ function PopulateGIFs(animal) {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        $("#gifs").append("<p>husky<p><img src=\"" + response.data[0].images.downsized.url.toString() + "\">");
+        for (var c = 0; c < 10; c++) {
+            $("#gifs").append("<div class=\"col-sm-2\" id = \"animal_id\"><p>Rating: G<p><img src=\"" + response.data[c].images.fixed_width_small.url.toString() + "\"id = \"" + animal + c.toString() + "\"></div>");
+        }
     });
 }
 
-PopulateButtons();
-PopulateGIFs("husky");
+//----------------------------------------------------------------------------------------------------------
 
 $("#sub").on("click",
 
@@ -57,17 +57,37 @@ $("#sub").on("click",
         //  It adds a new button to buttons if the text box is not empty, with textbox contents.
 
         event.preventDefault();
-        var a = $("#s").val();
-        //var a = document.getElementById("s")
-        if (a === "") {
+
+        if ($("#s").val() === "") {
             console.log("User did not enter any string. No search is performed.");
             console.log(a);
         }
         else {
-            //console.log(topics);
             topics.push($("#s").val());
             console.log(topics);
-            $("#buttons").remove(); //  This clears all previous buttons
+            $("#s").val("");
             PopulateButtons();
         }
     });
+
+//----------------------------------------------------------------------------------------------------------
+
+$(".col-sm-2").on("click",
+
+    function (event) {
+
+        //  This function retrieves new animal gif images and puts them out on screen based on the button clicked.
+
+        event.preventDefault();
+
+        console.log("I am here");
+        $("#gifs").empty();
+        PopulateGIFs($(this).text());
+    }
+);
+
+//----------------------------------------------------------------------------------------------------------
+
+PopulateButtons();
+//PopulateGIFs("husky");
+

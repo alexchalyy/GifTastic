@@ -30,3 +30,16 @@
         font-size: 50%;
     }
 }
+
+/*  This shrinks the image results and ratings on small screens. */
+
+@media (max-height: 360px)  {
+
+    img   {
+        width: 95%;
+    }
+
+    p   {
+        font-size: 50%;
+    }
+}
