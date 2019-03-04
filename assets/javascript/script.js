@@ -57,14 +57,15 @@ $("#sub").on("click",
         //  It adds a new button to buttons if the text box is not empty, with textbox contents.
 
         event.preventDefault();
-        var a = $("s").val();
-        if (a == null) {
+        var a = $("#s").val();
+        //var a = document.getElementById("s")
+        if (a === "") {
             console.log("User did not enter any string. No search is performed.");
             console.log(a);
         }
         else {
             //console.log(topics);
-            topics.push($("s").val());
+            topics.push($("#s").val());
             console.log(topics);
             $("#buttons").remove(); //  This clears all previous buttons
             PopulateButtons();
