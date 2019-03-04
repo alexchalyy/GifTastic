@@ -72,7 +72,7 @@ $("#sub").on("click",
 
 //----------------------------------------------------------------------------------------------------------
 
-$(".col-sm-2").on("click",
+$("#buttons").on("click",
 
     function (event) {
 
@@ -82,6 +82,7 @@ $(".col-sm-2").on("click",
 
         console.log("I am here");
         $("#gifs").empty();
+        console.log($(this).text());
         PopulateGIFs($(this).text());
     }
 );
