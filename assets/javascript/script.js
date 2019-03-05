@@ -16,7 +16,7 @@ function PopulateButtons() {
     for (var c = 0; c < topics.length; c++) {   //  This populated the buttons div with topics array buttons
         console.log(topics[c]);
         //  This function populates the div with buttons
-        $("#buttons").append("<button type=\"button\" class=\"btn btn-primary m-1\" id = \"button-" + c.toString() + "\" name = \"" + topics[c] + "\">" + topics[c] + "</button>");
+        $("#buttons").append("<button type=\"button\" class=\"btn btn-primary m-1 submitBtn\">" + topics[c] + "</button>");
     }
 }
 
@@ -26,7 +26,8 @@ function PopulateGIFs(animal) {
 
     //  This function populates the bootstrap card with 10 animal gif images of choice.
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=wxu2jPOXlj0bnJJQl4bDrvxy4Og5iADT&q=" + animal + "&limit=10&offset=0&rating=G&lang=en";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=wxu2jPOXlj0bnJJQl4bDrvxy4Og5iADT&q=" + animal + 
+                   "&limit=10&offset=0&rating=G&lang=en";
 
     $.ajax({
         url: queryURL,
@@ -34,7 +35,10 @@ function PopulateGIFs(animal) {
     }).then(function (response) {
         console.log(response);
         for (var c = 0; c < 10; c++) {
-            $("#gifs").append("<div class=\"col-sm-2\"><p>Rating: G<p><img src=\"" + response.data[c].images.fixed_width_small_still.url.toString() + "\"id=\"" + animal + c.toString() + "\" data-animate=\"" + response.data[c].images.fixed_width_small.url.toString() + "\" data-still=\"" + response.data[c].images.fixed_width_small_still.url.toString() + "\" data-state=\"still\" class = \"gif\"></div>");
+            var still = response.data[c].images.fixed_width_small_still.url.toString();
+            var motion = response.data[c].images.fixed_width_small.url.toString();
+            $("#gifs").prepend("<div class=\"col-sm-2\"><p>Rating: G<p><img src=\"" + still + "\"id=\"" + animal + c.toString() + 
+                              "\" data-animate=\"" + motion + "\" data-still=\"" + still + "\" data-state=\"still\" class = \"gif\"></div>");
         }
     });
 }
@@ -49,8 +53,6 @@ $("#sub").on("click",
         //  It adds a new button to buttons if the text box is not empty, with textbox contents.
 
         event.preventDefault();
-
-
 
         if ($("#s").val() === "") {
             console.log("User did not enter any string. No search is performed.");
@@ -85,19 +87,20 @@ $(".btn btn-primary m-1").on("click",
 //   }
 //);
 
-$('#buttons').on('click', function () {
+$(document).on('click', ".submitBtn", function () {
 
     // Do something on an existent or future dynamicElement
 
-    event.preventDefault();
     var n = $(this).text();
 
+    $("#gifs").empty();
+    PopulateGIFs(n);
     console.log(n);
 });
 
 //----------------------------------------------------------------------------------------------------------
 
-$(".gif").on("click",
+$(document).on("click", ".gif",
 
     function ()
 
@@ -122,5 +125,4 @@ $(".gif").on("click",
 //----------------------------------------------------------------------------------------------------------
 
 PopulateButtons();
-PopulateGIFs("bulldog");
 
