@@ -16,16 +16,8 @@ function PopulateButtons() {
     for (var c = 0; c < topics.length; c++) {   //  This populated the buttons div with topics array buttons
         console.log(topics[c]);
         //  This function populates the div with buttons
-        $("#buttons").append("<button type=\"button\" class=\"btn btn-primary m-1\" id = \"button-" + c.toString() + " name = \"" + topics[c] + "\">" + topics[c] + "</button>");
+        $("#buttons").append("<button type=\"button\" class=\"btn btn-primary m-1\" id = \"button-" + c.toString() + "\" name = \"" + topics[c] + "\">" + topics[c] + "</button>");
     }
-}
-
-//-----------------------------------------------------------------------------------------------------------
-
-function updatePage() {
-
-    console.log("get call works!");
-    console.log(response);
 }
 
 //-----------------------------------------------------------------------------------------------------------
@@ -42,7 +34,7 @@ function PopulateGIFs(animal) {
     }).then(function (response) {
         console.log(response);
         for (var c = 0; c < 10; c++) {
-            $("#gifs").append("<div class=\"col-sm-2\"><p>Rating: G<p><img src=\"" + response.data[c].images.fixed_width_small.url.toString() + "\"id = \"" + animal + c.toString() + "\"></div>");
+            $("#gifs").append("<div class=\"col-sm-2\"><p>Rating: G<p><img src=\"" + response.data[c].images.fixed_width_small_still.url.toString() + "\"id=\"" + animal + c.toString() + "\" data-animate=\"" + response.data[c].images.fixed_width_small.url.toString() + "\" data-still=\"" + response.data[c].images.fixed_width_small_still.url.toString() + "\" data-state=\"still\" class = \"gif\"></div>");
         }
     });
 }
@@ -90,16 +82,42 @@ $(".btn btn-primary m-1").on("click",
         $("#gifs").empty();
         console.log($(this).text());
         PopulateGIFs($(this).text());*/
- //   }
+//   }
 //);
 
-$('#buttons').on('click', function() {
+$('#buttons').on('click', function () {
+
     // Do something on an existent or future dynamicElement
+
     event.preventDefault();
     var n = $(this).text();
 
     console.log(n);
 });
+
+//----------------------------------------------------------------------------------------------------------
+
+$(".gif").on("click",
+
+    function ()
+
+    //  This function toggles between still and motion gif when it is clicked.
+
+    {
+        console.log("here!!!!!!!!!!!!!!!!");
+        var state = $(this).attr("data-state");
+        console.log(state);
+        // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+        // Then, set the image's data-state to animate
+        // Else set src to the data-still value
+        if (state === "still") {
+          $(this).attr("src", $(this).attr("data-animate"));
+          $(this).attr("data-state", "animate");
+        } else {
+          $(this).attr("src", $(this).attr("data-still"));
+          $(this).attr("data-state", "still");
+        }
+    });
 
 //----------------------------------------------------------------------------------------------------------
 
