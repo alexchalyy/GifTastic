@@ -24,7 +24,7 @@ GifTastic pseudo code:
 
 		Add the result gif images and ratings to div with id = "gifs". DONE
 
-6.	When the user clicks a button, call PopulateGifs for that button.
+6.	When the user clicks a button, call PopulateGifs for that button. ?
 
 7.	Create a function Animate with the definition below:
 

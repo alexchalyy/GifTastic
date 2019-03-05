@@ -16,7 +16,7 @@ function PopulateButtons() {
     for (var c = 0; c < topics.length; c++) {   //  This populated the buttons div with topics array buttons
         console.log(topics[c]);
         //  This function populates the div with buttons
-        $("#buttons").append("<button type=\"button\" class=\"btn btn-primary m-1\" id = \"button-" + c.toString() + "\">" + topics[c] + "</button>");
+        $("#buttons").append("<button type=\"button\" class=\"btn btn-primary m-1\" id = \"button-" + c.toString() + " name = \"" + topics[c] + "\">" + topics[c] + "</button>");
     }
 }
 
@@ -42,7 +42,7 @@ function PopulateGIFs(animal) {
     }).then(function (response) {
         console.log(response);
         for (var c = 0; c < 10; c++) {
-            $("#gifs").append("<div class=\"col-sm-2\" id = \"animal_id\"><p>Rating: G<p><img src=\"" + response.data[c].images.fixed_width_small.url.toString() + "\"id = \"" + animal + c.toString() + "\"></div>");
+            $("#gifs").append("<div class=\"col-sm-2\"><p>Rating: G<p><img src=\"" + response.data[c].images.fixed_width_small.url.toString() + "\"id = \"" + animal + c.toString() + "\"></div>");
         }
     });
 }
@@ -58,6 +58,8 @@ $("#sub").on("click",
 
         event.preventDefault();
 
+
+
         if ($("#s").val() === "") {
             console.log("User did not enter any string. No search is performed.");
             console.log(a);
@@ -71,8 +73,8 @@ $("#sub").on("click",
     });
 
 //----------------------------------------------------------------------------------------------------------
-
-$("#buttons").on("click",
+/*
+$(".btn btn-primary m-1").on("click",
 
     function (event) {
 
@@ -80,15 +82,27 @@ $("#buttons").on("click",
 
         event.preventDefault();
 
-        console.log("I am here");
+        //var element = $(this).attr("name");
+        var element = $(this).text();
+
+        console.log(element);
+        /*console.log("I am here");
         $("#gifs").empty();
         console.log($(this).text());
-        PopulateGIFs($(this).text());
-    }
-);
+        PopulateGIFs($(this).text());*/
+ //   }
+//);
+
+$('#buttons').on('click', function() {
+    // Do something on an existent or future dynamicElement
+    event.preventDefault();
+    var n = $(this).text();
+
+    console.log(n);
+});
 
 //----------------------------------------------------------------------------------------------------------
 
 PopulateButtons();
-//PopulateGIFs("husky");
+PopulateGIFs("bulldog");
 
