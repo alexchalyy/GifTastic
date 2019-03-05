@@ -67,25 +67,6 @@ $("#sub").on("click",
     });
 
 //----------------------------------------------------------------------------------------------------------
-/*
-$(".btn btn-primary m-1").on("click",
-
-    function (event) {
-
-        //  This function retrieves new animal gif images and puts them out on screen based on the button clicked.
-
-        event.preventDefault();
-
-        //var element = $(this).attr("name");
-        var element = $(this).text();
-
-        console.log(element);
-        /*console.log("I am here");
-        $("#gifs").empty();
-        console.log($(this).text());
-        PopulateGIFs($(this).text());*/
-//   }
-//);
 
 $(document).on('click', ".submitBtn", function () {
 
@@ -107,7 +88,6 @@ $(document).on("click", ".gif",
     //  This function toggles between still and motion gif when it is clicked.
 
     {
-        console.log("here!!!!!!!!!!!!!!!!");
         var state = $(this).attr("data-state");
         console.log(state);
         // If the clicked image's state is still, update its src attribute to what its data-animate value is.
