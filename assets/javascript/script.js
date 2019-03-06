@@ -34,7 +34,7 @@ function PopulateGIFs(animal) {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        for (var c = 0; c < 10; c++) {
+        for (var c = 0; c < 9; c++) {
             var still = response.data[c].images.fixed_width_small_still.url.toString();
             var motion = response.data[c].images.fixed_width_small.url.toString();
             $("#gifs").prepend("<div class=\"col-sm-2\"><p>Rating: G<p><img src=\"" + still + "\"id=\"" + animal + c.toString() + 
