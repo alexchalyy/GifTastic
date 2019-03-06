@@ -4,7 +4,7 @@
 
 //  This array holds search strings for buttons that are used to search for gifs and output them on screen.
 
-var topics = ["husky", "alaskan malamute", "german shepard", "collie", "pitbull", "shih tzu", "bulldog", "rotvajler", "chihuahua", "poodle", "pug"];
+var topics = ["husky", "alaskan malamute", "german shepard", "collie", "pitbull", "shih tzu", "bulldog", "greyhound", "chihuahua", "poodle", "pug"];
 
 //----------------------------------------------------------------------------------------------------------
 
